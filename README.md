@@ -1,2 +1,2 @@
 # Intern_Preparation
-Week_1 Array
+This repositry contains my Intern preparation works
