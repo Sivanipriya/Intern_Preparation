@@ -1,0 +1,29 @@
+vector<string> suspicious(vector<string> logs, int threshold) {
+   
+    unordered_map<string, int> ans;
+    
+    for (const string& log : logs) {
+        istringstream iss(log);
+        string sender, recipient, amount;
+        iss >> sender >> recipient >> amount;
+        if(sender!=recipient){
+        ans[sender]++;
+        ans[recipient]++;
+    }
+    else
+    {
+      ans[sender]++;
+    }
+    
+    set<string> suspiciousUsers;
+    for (auto& kvp : ans) {
+        if (kvp.second >= threshold) {
+            suspiciousUsers.insert(kvp.first);
+        }
+    }
+    
+    vector<string> result(suspiciousUsers.begin(), suspiciousUsers.end());
+    
+    return result;
+
+}
