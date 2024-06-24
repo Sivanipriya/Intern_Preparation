@@ -1,0 +1,27 @@
+string hint(string secret, string guess) {
+    unordered_map<char,int>m,m1;
+
+    int moon=0,star=0;
+    for(long unsigned int i=0;i<secret.size();i++)    {
+        if(secret[i]==guess[i])
+        {
+            moon++;
+        }
+        else
+        {
+        m[secret[i]]++;
+            m1[guess[i]]++;
+        }
+    }
+  
+    for(auto& c:m)
+    {
+        if(m1.find(c.first)!=m1.end())
+        {
+            star+=min(m1[c.first],c.second);
+        }
+    }
+    string res=to_string(moon)+"A"+to_string(star)+"B";
+    return  res;
+    
+}
