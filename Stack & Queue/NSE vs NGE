@@ -1,0 +1,42 @@
+vector<int> Nge_Nse(vector<int> arr) {
+        vector<int>ans;
+long unsigned int n=arr.size();
+    for(long unsigned int i=0;i<n;i++)
+    {
+        int max=arr[i],k;
+ 
+        for(long unsigned int j=i;j<n;j++)
+        {
+            if(arr[j]>max)
+            { 
+                k=j;
+                max=arr[j];
+                 break;
+            }
+        }
+      
+        if(max!=arr[i])
+        {
+                     int min=arr[k];
+            cout<<max;
+        for(long unsigned int j=k;j<n;j++)
+        {
+            if(arr[j]<min)
+            {  min=arr[j];
+                break;
+            }
+           
+        }
+            min=(min!=arr[k])?min:-1;
+            cout<<min;
+            if(min!=-1)
+                ans.push_back(min);
+            else
+                ans.push_back(-1);
+        }
+         else
+                ans.push_back(-1);
+    
+    }
+    return ans;
+}
