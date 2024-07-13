@@ -1,0 +1,23 @@
+SinglyLinkedListNode* addLinkedList(SinglyLinkedListNode* a, SinglyLinkedListNode* b) {
+    
+    int c=0,aval,bval,sum,s;
+    SinglyLinkedListNode* full=new SinglyLinkedListNode(0);
+    SinglyLinkedListNode* head;
+    head=full;
+    
+    while(a!=nullptr || b!=nullptr || c!=0)
+    {
+        aval=(a==nullptr)?0:a->data;     
+        bval=(b==nullptr)?0:b->data;
+        s=aval+bval+c;
+        sum=s%10;
+        SinglyLinkedListNode* n =new SinglyLinkedListNode(sum);
+        full->next=n;
+        full=full->next;
+        c=s/10;
+        a=(a==nullptr)?nullptr:a->next;
+        b=(b==nullptr)?nullptr:b->next;
+    }
+    full->next=NULL;
+    return head->next;
+}
