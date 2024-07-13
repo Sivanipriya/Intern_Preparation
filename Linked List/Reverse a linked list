@@ -1,0 +1,21 @@
+SinglyLinkedListNode* reverse(SinglyLinkedListNode* llist) {
+    
+     SinglyLinkedListNode *head=llist;
+    vector<int>v;
+    while(llist!=NULL)
+    {
+        v.push_back(llist->data);
+        llist=llist->next;
+    }
+    reverse(v.begin(),v.end());
+    llist=head;
+    for(auto i:v)
+    {
+ 
+        llist->data=i;
+        llist=llist->next;
+    }
+    llist=NULL;
+    return head;
+
+}
